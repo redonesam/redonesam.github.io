@@ -1,40 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Samuel | My Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      color: #333;
+<meta charset="UTF-8">
+<title>Samuel Mundia | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ <!-- Font Awesome goes HERE -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* NAV */
+nav {
+  position: relative;
+  z-index: 20;
+  background: rgba(0,0,0,0.7);
+  padding: 12px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #00e5ff;
+}
+nav {
+  position: sticky;
+  top: 0;
+}
+
+/* HEADER */
+header {
+  height: 60vh;
+  position: relative;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("abstract-tech.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: slowZoom 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 2;
+}
+
+header h1,
+header p {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+header h1 {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+header p {
+  animation: fadeUp 1.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SECTIONS */
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+#about p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+#about h2 {
+  font-size: 2rem;
+}
+
+/* SKILLS SECTION */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.skill {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill i {
+  font-size: 48px;
+  color: #333;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.skill:hover {
+  transform: translateY(-10px);
+}
+
+.skill:hover i {
+  transform: scale(1.15);
+  color: #4b0082; /* purple accent */
+}
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.skill {
+  animation: floatUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* SKILLS */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.skill {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.skill {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.skill:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.skill i {
+  font-size: 42px;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+/* FORM */
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+input:focus,
+textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+button {
+  background: #4b0082;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+}
+.contact-sub {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+#contact {
+  max-width: 500px;
+  margin: auto;
+}
+
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+#contact form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+#submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a00ff, #9b4dff);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(106, 0, 255, 0.3);
+}
+
+#success-message {
+  text-align: center;
+  background: #e8fff1;
+  color: #0a7a3d;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #222;
+  color: white;
+}
+.animated-footer {
+  position: relative;
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(
+    -45deg,
+    #0f2027,
+    #203a43,
+    #2c5364,
+    #6a00ff
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-footer p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+.animated-footer p {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Samuel Mundia</h1>
+  <p>Web Developer · Digital Creator · Tech Enthusiast</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+  <h2>Welcome</h2>
+  <p>
+I design and build clean, modern websites with a focus on performance,
+user experience, and simplicity.
+</p>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a web developer focused on building clean, modern, and responsive websites.
+    I specialize in creating user-friendly interfaces, optimizing performance,
+    and delivering simple, effective digital solutions.
+  </p>
+  <p>
+    My goal is to help individuals and businesses establish a strong online presence
+    through well-structured, fast, and reliable websites.
+  </p>
+</section>
+
+<div class="skills">
+
+  <div class="skill">
+    <i class="fa-solid fa-code"></i>
+    <p>Website Development</p>
+  </div>
+
+  <div class="skill">
+    <i class="fa-solid fa-palette"></i>
+    <p>UI / UX Design</p>
+  </div>
+
+  <div class="skill">
+    <i class="fa-solid fa-bolt"></i>
+    <p>Fast & Responsive Websites</p>
+  </div>
+
+  <div class="skill">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+    <p>Website Fixes & Improvements</p>
+  </div>
+
+  <div class="skill">
+    <i class="fa-brands fa-github"></i>
+    <p>GitHub Pages Deployment</p>
+  </div>
+
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p class="contact-sub">
+  Have a project in mind or need help with your website?  
+  Let’s talk.
+</p>
+  <form action="https://formspree.io/f/xpqrelwn" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit" id="submit-btn">
+  <span id="btn-text">Send Message</span>
+  <span id="btn-loader" style="display:none;">Sending...</span>
+</button>
+   
+ <p id="success-message" style="display:none; color:green; font-weight:600; margin-top:15px;">
+   Thank you! Your message has been sent.
+</p>
+  </form>
+</section>
+
+<footer class="animated-footer">
+  <p>© 2026 Samuel Mundia</p>
+</footer>
+
+<script>
+  const form = document.querySelector("form");
+  const successMessage = document.getElementById("success-message");
+  const btnText = document.getElementById("btn-text");
+  const btnLoader = document.getElementById("btn-loader");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    btnText.style.display = "none";
+    btnLoader.style.display = "inline";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = "block";
+      } else {
+        alert("Something went wrong. Try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again.");
     }
-    header {
-      background: #4b0082;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #333;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-    }
-    form {
-      max-width: 400px;
-      margin: auto;
-    }
+
+    btnText.style.display = "inline";
+    btnLoader.style.display = "none";
+  });
+</script>
+
+</body>
+  </html>    }
     input, textarea, button {
       width: 100%;
       padding: 10px;
