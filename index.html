@@ -7,7 +7,8 @@
  
  <!-- Font Awesome goes HERE -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 body {
   margin: 0;
@@ -284,7 +285,20 @@ button:hover {
   min-height: 120px;
   resize: none;
 }
+#contact {
+  padding: 120px 0;
+}
 
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; /* THIS is the premium spacing */
+  align-items: center;
+}
+.contact-container input,
+.contact-container textarea {
+  margin-bottom: 18px;
+}
 #submit-btn {
   width: 100%;
   padding: 14px;
@@ -310,7 +324,74 @@ button:hover {
   padding: 12px;
   border-radius: 8px;
 }
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-decoration: none;
+}
 
+.whatsapp-float:hover {
+  background-color: #1ebe5d;
+}
+.whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 360px;
+
+  padding: 14px 22px;
+  margin: 25px auto;
+
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+
+  border-radius: 12px;
+  border: none;
+
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+
+  transition: all 0.25s ease;
+}
+
+.whatsapp-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-cta:active {
+  transform: scale(0.98);
+}
+.whatsapp-cta {
+  padding: 50px;
+  border-radius: 16px;
+}
+
+.contact-container .whatsapp-cta {
+  margin-left: 40px; /* desktop spacing */
+}
+.whatsapp-cta p {
+  margin-top: 12px;
+  line-height: 1.6;
+}
 /* FOOTER */
 footer {
   text-align: center;
@@ -354,6 +435,109 @@ footer {
 .animated-footer p {
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
 }
+.site-footer {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+
+  text-align: center;
+
+  padding: 40px 20px;
+  margin-top: 60px;
+
+  font-size: 14px;
+}
+
+.site-footer strong {
+  font-weight: 600;
+}
+
+.footer-sub {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  margin-top: 120px;
+  padding: 70px 0 60px;
+}
+footer p {
+  margin-top: 14px;
+  line-height: 1.6;
+}
+/* Soft moving light effect */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  );
+  animation: footerGlow 12s linear infinite;
+}
+
+@keyframes footerGlow {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25%, 25%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.site-footer p {
+  position: relative;
+  z-index: 1;
+}
+.site-footer {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.site-footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.site-footer::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #25d366, transparent);
+  margin-bottom: 20px;
+}
+.site-footer {
+  margin-top: auto;
+}
+.site-footer {
+  background: linear-gradient(
+    120deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 </style>
 </head>
 
@@ -361,7 +545,7 @@ footer {
 
 <header>
   <h1>Redone Sam</h1>
-  <p>Web Developer · Digital Creator · Tech Enthusiast</p>
+  <p>Web Developer � Digital Creator � Tech Enthusiast</p>
 </header>
 
 <nav>
@@ -423,7 +607,7 @@ user experience, and simplicity.
   <h2>Contact Me</h2>
   <p class="contact-sub">
   Have a project in mind or need help with your website?  
-  Let’s talk.
+  Let�s talk.
 </p>
   <form action="https://formspree.io/f/xpqrelwn" method="POST">
     <input type="text" name="name" placeholder="Your Name" required>
@@ -441,11 +625,30 @@ user experience, and simplicity.
 </p>
   </form>
 </section>
+<a
+  href="https://wa.me/254783718479?text=Hello%20I%20would%20like%20a%20website"
+  class="whatsapp-cta"
+  target="_blank"
+>
+  <i class="fab fa-whatsapp"></i>
+  Get a Free Quote on WhatsApp
+</a>
+<a href="https://wa.me/254783718479?text=Hello%20Samuel,%20I%20saw%20your%20website%20and%20I%20would%20like%20to%20work%20with%20you"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+   <i class="fab fa-whatsapp"></i>
+</a>
 
-<footer class="animated-footer">
-  <p>© 2026 Redone Sam</p>
+<footer class="site-footer">
+  <p>
+    � <span id="year"></span> <strong>Redone Sam</strong>. All rights reserved.
+  </p>
+
+  <p class="footer-sub">
+    Web Developer � Digital Creator � Tech Enthusiast
+  </p>
 </footer>
-
 <script>
   const form = document.querySelector("form");
   const successMessage = document.getElementById("success-message");
@@ -481,6 +684,23 @@ user experience, and simplicity.
     btnLoader.style.display = "none";
   });
 </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script>
+  const footer = document.querySelector('.site-footer');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        footer.classList.add('show');
+      }
+    });
+  });
+
+  observer.observe(footer);
+</script>
+
 
 </body>
   </html>   
